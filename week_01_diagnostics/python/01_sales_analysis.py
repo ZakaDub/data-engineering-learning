@@ -1,6 +1,13 @@
 import pandas as pd
+from pathlib import Path
 
-df = pd.read_csv('../sales.csv')
+DATA_PATH = (
+    Path(__file__).resolve().parents[1]
+    / "data"
+    / "sales_sample.csv"
+)
+
+df = pd.read_csv(DATA_PATH)
 
 print("Missing values per column:")
 print(df.isna().sum())
